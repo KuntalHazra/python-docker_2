@@ -1,0 +1,28 @@
+# version: 0.0
+# os: linux
+# files:
+#   - source: /
+#     destination: /home/ec2-user/demo-app
+# hooks:
+#   BeforeInstall:
+#     - location: my_files/install.sh
+#       timeout: 300
+#       runas: root
+#   AfterInstall:
+#     - location: my_files/start.sh
+#       timeout: 300
+#       runas: root
+
+
+version: 0.0
+os: linux
+files:
+  - source: /pythonapp
+    destination: /home/ec2-user/demo-app
+hooks:
+  BeforeInstall:
+    - location: docker-test-repo/my_files/before.sh
+      timeout: 180
+  AfterInstall:
+    - location: docker-test-repo/my_files/after.sh
+      timeout: 180

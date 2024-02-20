@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Docker Hub...
+
+
+  build:
+    commands:
+      - echo Build started on date
+      - echo Building the Docker image using Docker Compose...
+      - docker-compose build
+
+  post_build:
+    commands:
+      - echo Build completed on date
+      - docker tag docker-test kuntalhzr/pythonapp:latest
+      - docker login -u kuntalhzr -p Kuntal@123
+      - echo Pushing the Docker image to Docker Hub...kuntalaws-at-827288360230
+      - docker push kuntalhzr/pythonapp:latest
+
+  # artifacts:
+  #   files:
+  #     - appspec.yml
+      
