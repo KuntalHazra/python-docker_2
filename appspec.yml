@@ -14,11 +14,11 @@
 #       runas: root
 
 
-version: 0.0
+version: 0.1
 os: linux
 files:
-  - source: /pythonapp
-    destination: /home/ec2-user/demo-app
+  - source: /
+    destination: /home/ubuntu
 hooks:
   BeforeInstall:
     - location: before.sh
